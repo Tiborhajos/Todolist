@@ -1,0 +1,33 @@
+
+{{ include('TodolistBundle::header.html.twig') }}
+
+{#@todo: on this page, a form needs to be displayed in which the user can add a todo item#}
+{#required fields: name, description#}
+{#optional parameters: importance level, deadline#}
+
+<form id="add_todo_item">
+    <div class="row">
+        <label class="col-xs-2" for="name">Naam item</label>
+        <input class="col-xs-2" type="text" name="name">
+    </div>
+
+    <div class="row">
+        <label class="col-xs-2" for="description">Beschrijving</label>
+        <input class="col-xs-2" type="text" name="description">
+    </div>
+
+    <div class="row">
+        <label class="col-xs-2" for="priority">Prioriteit</label>
+        <select class="col-xs-2" name="priority">
+            <option value="1">Hoog</option>
+            <option value="2">Middel</option>
+            <option value="3">Laag</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <button class="col-sm-offset-2 col-xs-2 btn" id="create_todo_item">Verstuur</button>
+    </div>
+</form>
+
+{{ include('TodolistBundle::footer.html.twig') }}

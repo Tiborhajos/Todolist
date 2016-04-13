@@ -1,0 +1,5 @@
+todolist:
+    resource: "@TodolistBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

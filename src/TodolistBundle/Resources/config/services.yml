@@ -1,0 +1,14 @@
+services:
+#Repositories
+    app.doctrine_todo_item_repository:
+        class: TodolistBundle\Repository\TodoItemRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - TodolistBundle\Entity\TodoItem
+
+#Services
+    app.todo_item_service:
+        class: TodolistBundle\Service\TodoListService
+        arguments:
+        - "@app.doctrine_todo_item_repository"
+        - "@logger"

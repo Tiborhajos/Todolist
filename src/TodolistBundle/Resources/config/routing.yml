@@ -1,0 +1,37 @@
+#WEB ROUTES
+#@todo: refactor to getall uncompleted to do items method?
+#app.route.overview:
+#    path:  /
+#    methods: [GET]
+#    defaults: { _controller: TodolistBundle:Default:index }
+
+app.route.create_todo_item_view:
+    path:  /add-todo-items-view
+    methods: [GET]
+    defaults: { _controller: TodolistBundle:Default:renderAddTodoItemPage }
+
+app.route.create_todo_item:
+    path:  /add-todo-item
+    methods: [POST]
+    defaults: { _controller: TodolistBundle:Default:addTodoItem }
+
+app.route.delete_todo_item:
+    path:  /delete-todo-item
+    methods: [POST]
+    defaults: { _controller: TodolistBundle:Default:deleteTodoItem }
+
+app.route.complete_todo_item:
+    path:  /complete-todo-item
+    methods: [POST]
+    defaults: { _controller: TodolistBundle:Default:completeTodoItem }
+
+app.route.completed_todo_items:
+    path:  /completed-todo-items
+    methods: [GET]
+    defaults: { _controller: TodolistBundle:Default:getAllCompletedTodoItems }
+
+app.route.incompleted_todo_items:
+    path:  /
+    methods: [GET]
+    defaults: { _controller: TodolistBundle:Default:getAllIncompletedTodoItems }
+

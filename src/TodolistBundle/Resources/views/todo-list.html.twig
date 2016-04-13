@@ -1,0 +1,54 @@
+{{ include('TodolistBundle::header.html.twig') }}
+
+{% if todoItemDTOs is empty %}
+    <div>
+        <h3 class="col-xs-6">Er staan geen items op de to do lijst.</h3>
+    </div>
+{% else %}
+
+    <div class="todo_item_list">
+
+        {% for todoItemDTO in todoItemDTOs %}
+            <div id="todo_item{{ todoItemDTO.id }}" class="todo_item">
+                <h1 class="col-xs-12">{{ todoItemDTO.name }}</h1>
+
+                <div class="todo_item--details">
+                    <div class="row padding__left--30px">
+                        <div class="col-xs-2">Gemaakt op:</div>
+                        <div class="col-xs-4">{{ todoItemDTO.createdAt|date("d/m/Y") }}</div>
+                    </div>
+
+                    <div class="row padding__left--30px">
+                        <div class="col-xs-2">Prioriteit:</div>
+                        <div class="col-xs-4">
+                            {% if todoItemDTO.priority == 1 %}
+                                Hoog
+                            {% elseif todoItemDTO.priority == 1 %}
+                                gemiddeld
+                            {% else %}
+                                laag
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row padding__left--30px">
+                        <div class="col-xs-2">Beschrijving:</div>
+                        <div class="col-xs-4">{{ todoItemDTO.description }}</div>
+                    </div>
+
+                    <div class="row padding__left--30px margin__top--10px padding_bottom--10px">
+                        <button class="col-xs-1 btn todo_item__complete_button" data-id="{{ todoItemDTO.id }}">
+                            Voltooien
+                        </button>
+                        <button class="col-xs-1 col-xs-offset-1 btn todo_item__delete_button"
+                                data-id="{{ todoItemDTO.id }}">Verwijderen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endif %}
+
+{{ include('TodolistBundle::footer.html.twig') }}
