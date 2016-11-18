@@ -3,8 +3,6 @@
 A friendly todo list tool.
 
 ##Setup##
-composer update
-
 composer install
 
 CREATE USER 'todo'@'localhost' IDENTIFIED BY 'test';
